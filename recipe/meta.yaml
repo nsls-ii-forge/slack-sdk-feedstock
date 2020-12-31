@@ -1,0 +1,77 @@
+{% set name = "slack-sdk" %}
+{% set version = "3.1.0" %}
+{% set sha256 = "c97522e423761e5931341a156a3991ae7e07f93eaad10b163415de0193ae22e3" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  number: 0
+  noarch: python
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
+
+requirements:
+  build:
+    - python
+    - pip
+  run:
+    - python
+
+test:
+  imports:
+    - slack
+    - slack.rtm
+    - slack.signature
+    - slack.web
+    - slack.web.classes
+    - slack.webhook
+    - slack_sdk
+    - slack_sdk.errors
+    - slack_sdk.models
+    - slack_sdk.models.attachments
+    - slack_sdk.models.blocks
+    - slack_sdk.models.dialoags
+    - slack_sdk.models.messages
+    - slack_sdk.models.views
+    - slack_sdk.oauth
+    - slack_sdk.oauth.authorize_url_generator
+    - slack_sdk.oauth.installation_store
+    - slack_sdk.oauth.installation_store.amazon_s3
+    - slack_sdk.oauth.installation_store.file
+    - slack_sdk.oauth.installation_store.models
+    - slack_sdk.oauth.installation_store.sqlalchemy
+    - slack_sdk.oauth.installation_store.sqlite3
+    - slack_sdk.oauth.redirect_uri_page_renderer
+    - slack_sdk.oauth.state_store
+    - slack_sdk.oauth.state_store.amazon_s3
+    - slack_sdk.oauth.state_store.file
+    - slack_sdk.oauth.state_store.sqlalchemy
+    - slack_sdk.oauth.state_store.sqlite3
+    - slack_sdk.oauth.state_utils
+    - slack_sdk.rtm
+    - slack_sdk.signature
+    - slack_sdk.web
+    - slack_sdk.webhook
+  requires:
+    - black ==19.10b0
+    - codecov >=2,<3
+    - databases >=0.3
+    - flake8 >=3,<4
+    - psutil >=5,<6
+    - pytest >=5.4,<6
+    - pytest-asyncio <1
+    - pytest-cov >=2,<3
+
+about:
+  home: https://github.com/slackapi/python-slack-sdk
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: The Slack API Platform SDK for Python
+  doc_url: https://slack.dev/python-slack-sdk
+  dev_url: https://github.com/slackapi/python-slack-sdk
