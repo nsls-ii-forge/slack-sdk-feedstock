@@ -1,5 +1,5 @@
 {% set name = "slack-sdk" %}
-{% set name_ = name.lower() %}
+{% set name_ = name.replace('-', '_') %}
 {% set version = "3.1.0" %}
 {% set sha256 = "c97522e423761e5931341a156a3991ae7e07f93eaad10b163415de0193ae22e3" %}
 
@@ -22,6 +22,10 @@ requirements:
     - pip
   run:
     - python
+    - aiodns
+    - aiohttp >=3,<4
+    - boto3 <=2
+    - sqlalchemy
 
 test:
   imports:
