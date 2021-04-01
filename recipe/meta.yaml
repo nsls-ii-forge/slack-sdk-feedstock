@@ -1,7 +1,7 @@
 {% set name = "slack-sdk" %}
 {% set name_ = name.replace('-', '_') %}
-{% set version = "3.3.0" %}
-{% set sha256 = "536a8f208aae016693e0e703ec18d09f0e6a061119db807b7769976152cfdb68" %}
+{% set version = "3.4.2" %}
+{% set sha256 = "befc1365df93b84eac4592b9a2183411a748ecf662f5c51ce2fa7fdc3f5ee89f" %}
 
 package:
   name: {{ name|lower }}
